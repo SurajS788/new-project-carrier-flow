@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "testCase": "Valid Login - Existing User",
+    "username": "rsuraj2524@gmail.com",
+    "password": "Test@123",
+    "isValid": true,
+    "expectedOutcome": "Should login successfully and redirect to dashboard",
+    "shouldShowErrorPopup": false
+  },
+  {
+    "id": 2,
+    "testCase": "Invalid Login - Wrong Password",
+    "username": "mayank@123.com",
+    "password": "test533",
+    "isValid": false,
+    "expectedOutcome": "Should display error popup with 'Invalid credentials' message",
+    "shouldShowErrorPopup": true,
+    "expectedErrorMessage": "Invalid credentials"
+  },
+  {
+    "id": 3,
+    "testCase": "Invalid Login - Non-existent User",
+    "username": "nonexistent_user@example.com",
+    "password": "SecurePass@123",
+    "isValid": false,
+    "expectedOutcome": "Should display error popup with 'User not found' or 'Invalid credentials' message",
+    "shouldShowErrorPopup": true,
+    "expectedErrorMessage": "User not found|Invalid credentials"
+  },
+  {
+    "id": 4,
+    "testCase": "Invalid Login - Empty/Invalid Password Format",
+    "username": "testuser@careerflow.ai",
+    "password": "123",
+    "isValid": false,
+    "expectedOutcome": "Should display error popup with password validation or 'Invalid credentials' message",
+    "shouldShowErrorPopup": true,
+    "expectedErrorMessage": "Invalid credentials|Password too short"
+  }
+]
