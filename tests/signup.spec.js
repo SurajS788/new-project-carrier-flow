@@ -38,7 +38,7 @@ test('Signup with Google should require terms acceptance and open Google auth', 
 
 });
 
-test.only('Signup form should validate password rules, require terms acceptance, and show email verification popup', async ({ page }) => {
+test('Signup form should validate password rules, require terms acceptance, and show email verification popup', async ({ page }) => {
  
   const signupPage = new SignupPage(page);
   // Step 1: Navigate to Careerflow.ai/singup page
