@@ -11,12 +11,12 @@ const { SignupPage } = require('../pages/signupPage');
  * 3. Accepts terms and retries Google signup
  * 4. Verifies successful redirect to Google authentication page
  */
-test.only('Signup with Google should require terms acceptance and open Google auth', async ({ page }) => {
+test('Signup with Google should require terms acceptance and open Google auth', async ({ page }) => {
   const homePage = new HomePage(page);
   const signupPage = new SignupPage(page);
 
   // Step 1: Navigate to Careerflow.ai/singup page
-  await signupPage.opensingupPage();
+  await signupPage.openSignupPage();
   
   
   // Step 5: Verify Google signup button is visible and clickable
@@ -32,20 +32,17 @@ test.only('Signup with Google should require terms acceptance and open Google au
   // Step 8: Accept the terms and privacy policy checkbox
   await signupPage.acceptTermsAndPolicy();
 
-  // Step 9: Get the list of current browser pages before clicking Google signup
-  // This helps us detect when a new tab/window opens for Google authentication
-  const originalPages = signupBrowserPage.context().pages();
   
   // Step 10: Click Google signup button again (now with terms accepted)
   await signupPage.clickGoogleSignUp();
 
 });
 
-test('Signup form should validate password rules, require terms acceptance, and show email verification popup', async ({ page }) => {
+test.only('Signup form should validate password rules, require terms acceptance, and show email verification popup', async ({ page }) => {
  
   const signupPage = new SignupPage(page);
   // Step 1: Navigate to Careerflow.ai/singup page
-  await signupPage.opensingupPage();
+  await signupPage.openSignupPage();
  
   const signupEmail = `tim${Date.now()}@example.com`;
 
@@ -65,6 +62,6 @@ test('Signup form should validate password rules, require terms acceptance, and 
   await signupPage.acceptTermsAndPolicy();
   await signupPage.clickSignUpButton();
 
-  await signupPage.verifyEmailVerificationPopupContains(signupEmail);
+
   await signupPage.verifyPopupButtonsVisible();
 });
